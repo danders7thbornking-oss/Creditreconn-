@@ -1,0 +1,19 @@
+name: Copilot Setup Steps
+on:
+  workflow_dispatch:
+  push:
+    paths:
+      - .github/workflows/copilot-setup-steps.yml
+
+jobs:
+  copilot-setup-steps:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1
+      - name: Install GitHub Agentic Workflows CLI
+        uses: github/gh-aw/actions/setup-cli@32ecafbc061c9af57e9361942099e381102ae304
+        with:
+          version: v0.93.5
